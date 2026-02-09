@@ -21,7 +21,9 @@ describe("Home Page", () => {
     render(<Home />);
 
     // "get started" metni var mı kontrol et (yeni Next.js versiyonu)
-    const getStartedText = screen.getByText(/To get started, edit the page\.tsx file\./i);
+    const getStartedText = screen.getByText(
+      /To get started, edit the page\.tsx file\./i
+    );
     expect(getStartedText).toBeInTheDocument();
   });
 
