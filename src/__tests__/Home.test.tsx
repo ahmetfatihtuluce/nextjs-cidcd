@@ -38,4 +38,28 @@ describe("Home Page", () => {
       expect.stringContaining("vercel.com")
     );
   });
+
+  it("should have documentation link", () => {
+    render(<Home />);
+
+    // Documentation linki var mı kontrol et
+    const docsLink = screen.getByRole("link", { name: /Documentation/i });
+    expect(docsLink).toBeInTheDocument();
+    expect(docsLink).toHaveAttribute(
+      "href",
+      expect.stringContaining("nextjs.org/docs")
+    );
+  });
+
+  it("should render Templates and Learning links", () => {
+    render(<Home />);
+
+    // Templates linki var mı kontrol et
+    const templatesLink = screen.getByRole("link", { name: /Templates/i });
+    expect(templatesLink).toBeInTheDocument();
+
+    // Learning linki var mı kontrol et
+    const learningLink = screen.getByRole("link", { name: /Learning/i });
+    expect(learningLink).toBeInTheDocument();
+  });
 });
