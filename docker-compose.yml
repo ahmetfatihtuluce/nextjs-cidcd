@@ -1,0 +1,39 @@
+# ============================================
+# 🐳 Docker Compose - Development & Production
+# ============================================
+
+services:
+  # ==========================================
+  # Development Container
+  # ==========================================
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: nextjs-cicd-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Hot reload için kaynak kodu mount et
+      - .:/app
+      # node_modules'ü container içinde tut
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+    command: npm run dev
+
+  # ==========================================
+  # Production Container
+  # ==========================================
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-cicd-prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

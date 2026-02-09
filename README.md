@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js CI/CD Örnek Projesi
 
-## Getting Started
+[![CI/CD Pipeline](https://github.com/ahmetfatihtuluce/nextjs-cidcd/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/ahmetfatihtuluce/nextjs-cidcd/actions/workflows/ci-cd.yml)
 
-First, run the development server:
+Bu proje, **CI/CD (Continuous Integration / Continuous Deployment)** kavramlarını öğrenmek için oluşturulmuş bir örnek Next.js uygulamasıdır.
+
+## 📚 İçindekiler
+
+- [Teknolojiler](#-teknolojiler)
+- [Kurulum](#-kurulum)
+- [Docker ile Çalıştırma](#-docker-ile-çalıştırma)
+- [CI/CD Pipeline](#-cicd-pipeline)
+- [Komutlar](#-komutlar)
+
+## 🛠 Teknolojiler
+
+| Teknoloji                                             | Açıklama             |
+| ----------------------------------------------------- | -------------------- |
+| [Next.js 16](https://nextjs.org/)                     | React Framework      |
+| [TypeScript](https://www.typescriptlang.org/)         | Type-safe JavaScript |
+| [Tailwind CSS](https://tailwindcss.com/)              | Utility-first CSS    |
+| [Jest](https://jestjs.io/)                            | Test Framework       |
+| [Testing Library](https://testing-library.com/)       | UI Test Utilities    |
+| [ESLint](https://eslint.org/)                         | Linting              |
+| [Prettier](https://prettier.io/)                      | Code Formatting      |
+| [Docker](https://www.docker.com/)                     | Containerization     |
+| [GitHub Actions](https://github.com/features/actions) | CI/CD                |
+
+## 🚀 Kurulum
 
 ```bash
+# Projeyi klonla
+git clone https://github.com/ahmetfatihtuluce/nextjs-cidcd.git
+cd nextjs-cidcd
+
+# Bağımlılıkları yükle
+npm install
+
+# Geliştirme sunucusunu başlat
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini aç.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🐳 Docker ile Çalıştırma
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Development (Geliştirme)
 
-## Learn More
+```bash
+# Development container'ı başlat (hot-reload aktif)
+docker-compose up dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Production container'ı başlat
+docker-compose up prod
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Veya manuel olarak
+docker build -t nextjs-cicd .
+docker run -p 3000:3000 nextjs-cicd
+```
 
-## Deploy on Vercel
+## 🔄 CI/CD Pipeline
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Bu proje, GitHub Actions ile otomatik CI/CD pipeline içerir:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│    Lint     │ -> │    Test     │ -> │    Build    │ -> │   Docker    │
+│  & Format   │    │  Coverage   │    │   Next.js   │    │    Image    │
+└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
+                          │
+                          v
+                   ┌─────────────┐
+                   │  Security   │
+                   │    Scan     │
+                   └─────────────┘
+```
+
+### Pipeline Aşamaları
+
+1. **🔍 Lint & Format**: ESLint ve Prettier kontrolü
+2. **🧪 Test**: Jest testleri ve coverage raporu
+3. **🏗️ Build**: Next.js production build
+4. **🐳 Docker**: Docker image oluşturma
+5. **🔒 Security**: npm audit güvenlik taraması
+
+## 📋 Komutlar
+
+| Komut                   | Açıklama                 |
+| ----------------------- | ------------------------ |
+| `npm run dev`           | Geliştirme sunucusu      |
+| `npm run build`         | Production build         |
+| `npm run start`         | Production sunucusu      |
+| `npm run lint`          | ESLint kontrolü          |
+| `npm run lint:fix`      | ESLint otomatik düzeltme |
+| `npm run format`        | Prettier ile formatlama  |
+| `npm run format:check`  | Format kontrolü          |
+| `npm run test`          | Testleri çalıştır        |
+| `npm run test:watch`    | Watch modunda test       |
+| `npm run test:coverage` | Coverage raporu          |
+
+## 📁 Proje Yapısı
+
+```
+nextjs-cicd/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml          # GitHub Actions pipeline
+├── src/
+│   ├── app/                   # Next.js App Router
+│   └── __tests__/             # Test dosyaları
+├── Dockerfile                 # Production Dockerfile
+├── Dockerfile.dev             # Development Dockerfile
+├── docker-compose.yml         # Docker Compose yapılandırması
+├── jest.config.ts             # Jest yapılandırması
+├── next.config.ts             # Next.js yapılandırması
+└── package.json
+```
+
+## 📖 Öğrenilen Kavramlar
+
+- ✅ CI/CD nedir ve neden önemlidir
+- ✅ GitHub Actions ile otomatik pipeline oluşturma
+- ✅ Docker ile containerization
+- ✅ Multi-stage Docker builds
+- ✅ Otomatik test ve coverage
+- ✅ Kod kalitesi araçları (ESLint, Prettier)
+- ✅ Güvenlik taraması
+
+## 📄 Lisans
+
+MIT License

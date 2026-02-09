@@ -1,0 +1,29 @@
+# ============================================
+# 🐳 Development Dockerfile
+# ============================================
+# Hot-reload destekli geliştirme ortamı
+
+FROM node:20-alpine
+
+# Alpine için gerekli paketler
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+
+# Package dosyalarını kopyala
+COPY package.json package-lock.json* ./
+
+# Bağımlılıkları yükle
+RUN npm install
+
+# Kaynak kodu kopyala
+COPY . .
+
+# Port ayarı
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# Development server'ı başlat
+CMD ["npm", "run", "dev"]

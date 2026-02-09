@@ -1,0 +1,29 @@
+# Bağımlılıklar
+node_modules
+npm-debug.log
+
+# Next.js build çıktıları
+.next
+out
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# IDE
+.vscode
+.idea
+
+# Test
+coverage
+.nyc_output
+
+# Misc
+*.md
+.env*
+.DS_Store
