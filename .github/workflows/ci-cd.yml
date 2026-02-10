@@ -143,7 +143,7 @@ jobs:
 
       # E2E testlerini çalıştır (production build)
       - name: 🎯 Run E2E Tests
-        run: start-server-and-test start http://localhost:3000 cypress:run
+        run: npm run e2e:ci
 
       # Cypress videolarını artifact olarak kaydet (başarısızlık durumunda)
       - name: 📹 Upload Cypress Videos (on failure)
