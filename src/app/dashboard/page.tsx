@@ -18,7 +18,7 @@ export default function DashboardPage() {
     } else {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setUsername(storedUsername || "Kullanıcı");
-       
+
       setIsLoading(false);
     }
   }, [router]);
