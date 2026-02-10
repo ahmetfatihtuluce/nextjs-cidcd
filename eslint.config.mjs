@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     // Custom ignores:
     "coverage/**",
     "node_modules/**",
+    "cypress/support/component.ts",
+    ".eslintignore",
   ]),
 ]);
 
