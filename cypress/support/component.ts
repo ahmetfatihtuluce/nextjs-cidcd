@@ -16,23 +16,21 @@
 // Import commands.js using ES2015 syntax:
 import "./commands";
 
-import { mount } from "cypress/react";
+// NOTE: Component testing is not used in this project.
+// We use E2E testing with Cypress instead.
+// This file is kept for reference but not actively used.
 
-// Augment the Cypress namespace to include type definitions for
-// your custom command.
-// Alternatively, can be defined in cypress/support/component.d.ts
-// with a <reference path="./component" /> at the top of your spec.
-declare global {
-  interface CypressCustomCommands {
-    mount: typeof mount;
-  }
-}
-
-export interface Chainable {
-  mount: typeof mount;
-}
-
-Cypress.Commands.add("mount", mount);
-
+// import { mount } from "cypress/react";
+//
+// declare global {
+//   namespace Cypress {
+//     interface Chainable {
+//       mount: typeof mount;
+//     }
+//   }
+// }
+//
+// Cypress.Commands.add("mount", mount);
+//
 // Example use:
 // cy.mount(<MyComponent />)
