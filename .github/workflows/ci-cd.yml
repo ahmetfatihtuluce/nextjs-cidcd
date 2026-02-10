@@ -137,14 +137,11 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
-      # Build artifact'ini indir
-      - name: 📥 Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: nextjs-build
-          path: .next/
+      # Build Next.js app for E2E tests
+      - name: 🏗️ Build Next.js App
+        run: npm run build
 
-      # E2E testlerini çalıştır (build modu)
+      # E2E testlerini çalıştır (production build)
       - name: 🎯 Run E2E Tests
         run: start-server-and-test start http://localhost:3000 cypress:run
 
