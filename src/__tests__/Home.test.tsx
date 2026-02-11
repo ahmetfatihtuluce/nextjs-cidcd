@@ -5,6 +5,8 @@
  * CI/CD pipeline'ında her push'ta otomatik olarak çalışır.
  */
 
+/// <reference types="@testing-library/jest-dom" />
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
