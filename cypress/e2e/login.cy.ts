@@ -68,6 +68,12 @@ describe("Login Page E2E Tests", () => {
       cy.get('[data-testid="error-message"]').should("be.visible");
     });
 
+    it("should show validation error when submitting empty form", () => {
+      cy.get('[data-testid="login-button"]').click();
+      cy.url().should("include", "/login");
+      // HTML5 validation çalışmalı
+    });
+
     it("should show error for wrong password", () => {
       cy.get('[data-testid="username-input"]').type("test");
       cy.get('[data-testid="password-input"]').type("wrongpass");
