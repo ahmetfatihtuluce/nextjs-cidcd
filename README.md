@@ -56,14 +56,14 @@ cp .env.example .env.local
 
 ### Önemli Environment Variables:
 
-| Variable | Açıklama | Default |
-|----------|----------|---------|
-| `NEXT_PUBLIC_APP_NAME` | Uygulama adı | "Next.js CI/CD Example" |
-| `PORT` | Server portu | 4023 |
-| `NEXT_PUBLIC_API_URL` | API base URL | http://localhost:4023 |
-| `NEXT_PUBLIC_LOGIN_USERNAME` | Demo kullanıcı adı | test |
-| `NEXT_PUBLIC_LOGIN_PASSWORD` | Demo şifresi | test123 |
-| `NODE_ENV` | Ortam | development |
+| Variable                     | Açıklama           | Default                 |
+| ---------------------------- | ------------------ | ----------------------- |
+| `NEXT_PUBLIC_APP_NAME`       | Uygulama adı       | "Next.js CI/CD Example" |
+| `PORT`                       | Server portu       | 4023                    |
+| `NEXT_PUBLIC_API_URL`        | API base URL       | http://localhost:4023   |
+| `NEXT_PUBLIC_LOGIN_USERNAME` | Demo kullanıcı adı | test                    |
+| `NEXT_PUBLIC_LOGIN_PASSWORD` | Demo şifresi       | test123                 |
+| `NODE_ENV`                   | Ortam              | development             |
 
 **Not:** `NEXT_PUBLIC_` prefix'li değişkenler client-side'da kullanılabilir.
 
