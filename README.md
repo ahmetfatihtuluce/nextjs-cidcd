@@ -36,11 +36,36 @@ cd nextjs-cidcd
 # Bağımlılıkları yükle
 npm install
 
+# Environment dosyasını oluştur
+cp .env.example .env.local
+# .env.local dosyasını kendi ayarlarınıza göre düzenleyin
+
 # Geliştirme sunucusunu başlat
 npm run dev
 ```
 
 Tarayıcıda [http://localhost:4023](http://localhost:4023) adresini aç.
+
+## 🌍 Environment Variables
+
+Proje environment variables kullanır. `.env.example` dosyasını `.env.local` olarak kopyalayın:
+
+```bash
+cp .env.example .env.local
+```
+
+### Önemli Environment Variables:
+
+| Variable | Açıklama | Default |
+|----------|----------|---------|
+| `NEXT_PUBLIC_APP_NAME` | Uygulama adı | "Next.js CI/CD Example" |
+| `PORT` | Server portu | 4023 |
+| `NEXT_PUBLIC_API_URL` | API base URL | http://localhost:4023 |
+| `NEXT_PUBLIC_LOGIN_USERNAME` | Demo kullanıcı adı | test |
+| `NEXT_PUBLIC_LOGIN_PASSWORD` | Demo şifresi | test123 |
+| `NODE_ENV` | Ortam | development |
+
+**Not:** `NEXT_PUBLIC_` prefix'li değişkenler client-side'da kullanılabilir.
 
 ## 🐳 Docker ile Çalıştırma
 

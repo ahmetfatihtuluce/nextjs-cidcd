@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+// Environment variables'dan credentials al
+const VALID_USERNAME = process.env.NEXT_PUBLIC_LOGIN_USERNAME || "test";
+const VALID_PASSWORD = process.env.NEXT_PUBLIC_LOGIN_PASSWORD || "test123";
+
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +23,7 @@ export default function LoginPage() {
     // Gerçek projede bu bir API çağrısı olur
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    if (username === "test" && password === "test123") {
+    if (username === VALID_USERNAME && password === VALID_PASSWORD) {
       // Başarılı login - session storage'a kaydet
       sessionStorage.setItem("isLoggedIn", "true");
       sessionStorage.setItem("username", username);
