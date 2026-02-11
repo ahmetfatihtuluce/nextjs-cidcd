@@ -142,6 +142,7 @@ jobs:
         run: npm run build
 
       # E2E testlerini çalıştır (production build)
+      # Not: Port 4023 kullanılıyor (package.json'da tanımlı)
       - name: 🎯 Run E2E Tests
         run: npm run e2e:ci
 

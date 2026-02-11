@@ -12,7 +12,7 @@ services:
       dockerfile: Dockerfile.dev
     container_name: nextjs-cicd-dev
     ports:
-      - "3000:3000"
+      - "4023:3000"
     volumes:
       # Hot reload için kaynak kodu mount et
       - .:/app
@@ -33,7 +33,7 @@ services:
       dockerfile: Dockerfile
     container_name: nextjs-cicd-prod
     ports:
-      - "3000:3000"
+      - "4023:3000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped

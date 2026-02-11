@@ -1,5 +1,5 @@
 describe("API - /api/users", () => {
-  const baseUrl = "http://localhost:3000/api/users";
+  const baseUrl = "http://localhost:4023/api/users";
 
   describe("GET /api/users", () => {
     it("should return all users", () => {

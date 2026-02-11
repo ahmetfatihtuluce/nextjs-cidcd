@@ -4,7 +4,7 @@ describe("Homepage E2E Tests", () => {
   });
 
   it("should load the homepage successfully", () => {
-    cy.url().should("eq", "http://localhost:3000/");
+    cy.url().should("eq", "http://localhost:4023/");
   });
 
   it("should display the Next.js logo", () => {
