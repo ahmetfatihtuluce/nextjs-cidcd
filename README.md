@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini aç.
+Tarayıcıda [http://localhost:4023](http://localhost:4023) adresini aç.
 
 ## 🐳 Docker ile Çalıştırma
 
@@ -59,7 +59,7 @@ docker-compose up prod
 
 # Veya manuel olarak
 docker build -t nextjs-cicd .
-docker run -p 3000:3000 nextjs-cicd
+docker run -p 4023:3000 nextjs-cicd
 ```
 
 ## 🔄 CI/CD Pipeline
