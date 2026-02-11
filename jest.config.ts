@@ -16,6 +16,9 @@ const config: Config = {
   // Test dosyalarının bulunacağı pattern
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
 
+  // Type definition dosyalarını test olarak çalıştırma
+  testPathIgnorePatterns: ["/node_modules/", "/.next/", "/cypress/", "\\.d\\.ts$"],
+
   // Coverage ayarları
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}",

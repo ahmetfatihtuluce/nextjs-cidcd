@@ -13,8 +13,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "types": ["jest", "node", "@testing-library/jest-dom"],
-    "typeRoots": ["./node_modules/@types", "./"],
     "plugins": [
       {
         "name": "next"
@@ -26,7 +24,6 @@
   },
   "include": [
     "next-env.d.ts",
-    "jest.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     ".next/types/**/*.ts",

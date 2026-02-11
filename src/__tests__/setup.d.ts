@@ -1,6 +1,3 @@
-// Bu dosya Jest ve jest-dom tiplerini global olarak tanımlar
-// Cypress tipleri ile çakışmayı önler
-
 import "@testing-library/jest-dom";
 
 declare global {
@@ -22,3 +19,5 @@ declare global {
     }
   }
 }
+
+export {};
