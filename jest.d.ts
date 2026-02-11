@@ -1,6 +1,3 @@
-/// <reference types="jest" />
-/// <reference types="@testing-library/jest-dom" />
-
 // Bu dosya Jest ve jest-dom tiplerini global olarak tanımlar
 // Cypress tipleri ile çakışmayı önler
 
@@ -10,7 +7,10 @@ declare global {
   namespace jest {
     interface Matchers<R> {
       toBeInTheDocument(): R;
-      toHaveAttribute(attr: string, value?: string | RegExp | jest.AsymmetricMatcher): R;
+      toHaveAttribute(
+        attr: string,
+        value?: string | RegExp | jest.AsymmetricMatcher
+      ): R;
       toHaveTextContent(text: string | RegExp): R;
       toBeVisible(): R;
       toBeDisabled(): R;

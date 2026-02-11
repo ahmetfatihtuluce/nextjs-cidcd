@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
 
     // Return all users
     return NextResponse.json(mockUsers);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
     };
 
     return NextResponse.json(newUser, { status: 201 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -113,7 +113,7 @@ export async function DELETE(request: NextRequest) {
       { message: "User deleted successfully", id: parseInt(id) },
       { status: 200 }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
