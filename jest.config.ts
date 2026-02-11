@@ -17,7 +17,12 @@ const config: Config = {
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
 
   // Type definition dosyalarını test olarak çalıştırma
-  testPathIgnorePatterns: ["/node_modules/", "/.next/", "/cypress/", "\\.d\\.ts$"],
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/.next/",
+    "/cypress/",
+    "\\.d\\.ts$",
+  ],
 
   // Coverage ayarları
   collectCoverageFrom: [
